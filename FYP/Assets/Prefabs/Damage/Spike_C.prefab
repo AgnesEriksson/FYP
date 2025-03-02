@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7281034806863743486}
   m_Layer: 7
   m_Name: Spike_C
-  m_TagString: obstacle
+  m_TagString: Danger
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

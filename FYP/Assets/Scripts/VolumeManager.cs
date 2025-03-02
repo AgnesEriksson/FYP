@@ -13,6 +13,8 @@ public class VolumeManager : MonoBehaviour
     private Slider bgSlider;
     [SerializeField]
     private Slider fxSlider;
+    [SerializeField]
+    private Slider masterSlider;
 
     public void HandleAudio()
     {
@@ -32,6 +34,14 @@ public class VolumeManager : MonoBehaviour
         {
             SetFXVolume();
         }
+        if (PlayerPrefs.HasKey("masterVolume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            SetMasterVolume();
+        }
     }
 
     public void SetFXVolume()
@@ -41,10 +51,18 @@ public class VolumeManager : MonoBehaviour
         PlayerPrefs.SetFloat("fxVolume", volume);
     }
 
+    public void SetMasterVolume()
+    {
+        float volume = masterSlider.value;
+        mixer.SetFloat("fxVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("fxVolume", volume);
+    }
+
     private void LoadVolume()
     {
         bgSlider.value = PlayerPrefs.GetFloat("bgVolume");
         fxSlider.value = PlayerPrefs.GetFloat("fxVolume");
+        masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
     }
 
     public void SetMusicVolume()

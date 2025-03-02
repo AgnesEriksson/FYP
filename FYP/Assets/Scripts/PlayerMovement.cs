@@ -78,4 +78,15 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("test");
+        if (collision.gameObject.CompareTag("Danger"))
+        {
+            GameManager.Instance.gameOver = true;
+            GameManager.Instance.isPlaying = false;
+        }
+    }
+
 }
