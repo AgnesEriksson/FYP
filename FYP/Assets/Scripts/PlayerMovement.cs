@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("test");
+        //Debug.Log("test");
         if (collision.gameObject.CompareTag("Danger"))
         {
             GameManager.Instance.gameOver = true;

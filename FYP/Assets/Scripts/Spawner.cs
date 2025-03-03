@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] Spawnables; //Array to store Obstacles
-    [SerializeField] private Transform spawnPoint; //The SpawnPoint for the Obstacles
-    [SerializeField] private float spawnRate = 2f; // How fast the Obstacles Spawn Serialized so easily changed
-    [SerializeField] public float speedModifier = 1f; // To be use to speed up obstacles and spawning
+    [SerializeField] private GameObject[] Spawnables; // Array to store Obstacles
+    [SerializeField] private Transform spawnPoint; // The SpawnPoint for the Obstacles
+    [SerializeField] private float initialSpawnRate = 2f; // Initial spawn rate
+    [SerializeField] private float speedModifier = 1f; // Speed of obstacles
+    [SerializeField] private float spawnRateDecrease = 0.05f; // Amount to decrease spawn rate per spawn
+    [SerializeField] private float speedIncrease = 0.1f; // Amount to increase speed per spawn
+    private float currentSpawnRate;
     private float timeSinceSpawn;
 
     void Start()
     {
-        InvokeRepeating(nameof(SpawnObject), 0f, spawnRate * speedModifier); //Starts Spawn Cyle at Spawn Rate
+        currentSpawnRate = initialSpawnRate;
     }
 
-    private void Update()
+    void Update()
     {
-        SpawnObject(); // Checks to see if spawn conditionas are met every frame
+        timeSinceSpawn += Time.deltaTime;
+
+        if (timeSinceSpawn >= currentSpawnRate)
+        {
+            SpawnObject();
+            timeSinceSpawn = 0f;
+
+            // Gradually adjust spawn rate and speed with controlled increments
+            currentSpawnRate = Mathf.Max(currentSpawnRate - spawnRateDecrease, 0.5f);
+            speedModifier += speedIncrease;
+        }
     }
 
     private void SpawnObject()
     {
-        timeSinceSpawn += Time.deltaTime; //enumaterates the spawn time every secnd
-        if (timeSinceSpawn >= spawnRate) // time since last spawn is greatere than the spawn rate triggers the spawn cycles and zeros it 
-        {
-            Spawn();
-            timeSinceSpawn = 0f;
-        }
-/*        GameObject obstacle = Instantiate(Spawnables[Random.Range(0, Spawnables.Length)], spawnPoint.position, Quaternion.identity); // Instantiates from give array
-        Rigidbody2D oRB = obstacle.GetComponent<Rigidbody2D>();
-        oRB.velocity = Vector2.left * speedModifier;*/
-    }
-
-    private void Spawn()
-    {
-        GameObject obstacle = Instantiate(Spawnables[Random.Range(0, Spawnables.Length)], spawnPoint.position, Quaternion.identity); // Instantiates from give array
+        GameObject obstacle = Instantiate(Spawnables[Random.Range(0, Spawnables.Length)], spawnPoint.position, Quaternion.identity);
         Rigidbody2D rb = obstacle.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.left * speedModifier;
     }
