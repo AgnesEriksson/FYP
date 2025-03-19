@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -215, y: -249}
+  m_AnchoredPosition: {x: -215, y: -194}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &99620107
@@ -594,7 +594,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1060,7 +1060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -908.5, y: 269.5}
+  m_AnchoredPosition: {x: -908.5, y: 333.3}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &683982823
@@ -1792,7 +1792,7 @@ Transform:
   m_GameObject: {fileID: 865681664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.05, z: 0}
+  m_LocalPosition: {x: 0, y: 4.6, z: 0}
   m_LocalScale: {x: 19.157738, y: 2.0842113, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3315,7 +3315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521937476}
   - component: {fileID: 1521937477}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -3350,14 +3350,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawnables:
-  - {fileID: 5809883867724801996, guid: b4a80271525a0bd41a6f49a1ab392fbb, type: 3}
+  - {fileID: 8877569385753907701, guid: 8dc6fec25f3da1447ad2c74363c1a93a, type: 3}
+  - {fileID: 831356075963748819, guid: 7df1afa81988bc44db0134e765ec6a68, type: 3}
   - {fileID: 5722658650729069093, guid: 8b5b559050f91f84cacd1e5ee289c3cf, type: 3}
+  - {fileID: 3901398656736511416, guid: 9bb86a29c9f8af5408d80fc84d4ed254, type: 3}
   - {fileID: 887256323982367983, guid: 4472804fd09fe2c4d8613bb5d4c64680, type: 3}
+  - {fileID: 8877569385753907701, guid: 882f250b036d69041ab45eaa72ca2497, type: 3}
+  - {fileID: 831356075963748819, guid: 22c5a3179895d194a9d51d4548a5fcf7, type: 3}
+  - {fileID: 5722658650729069093, guid: 2b18155e0959c254abeb27c5ab1b9058, type: 3}
+  - {fileID: 3181189382368951771, guid: c6099eb97f4d1214bad2bff2b29efecd, type: 3}
+  - {fileID: 887256323982367983, guid: dcf4a35c69789ad4cb525308a6559445, type: 3}
+  - {fileID: 8877569385753907701, guid: 2be2b755eedf12e45a2277a834eeefa9, type: 3}
+  - {fileID: 831356075963748819, guid: 753cc2123c2349947b19bfcd4e49b49c, type: 3}
+  - {fileID: 5722658650729069093, guid: 5aeaa9b06dea44d478f883d2a38b7c15, type: 3}
+  - {fileID: 3181189382368951771, guid: 38e807f977cb3f14c8e4280a50ad9fe7, type: 3}
+  - {fileID: 887256323982367983, guid: e6003484133d1394aa85d0bf807c99b1, type: 3}
+  - {fileID: 8877569385753907701, guid: 75140fb92f9500b4ab39c66db96e8a4f, type: 3}
+  - {fileID: 831356075963748819, guid: c004e9394c7d1ee4480e00b3478eb7c1, type: 3}
+  - {fileID: 5722658650729069093, guid: 6e0cdec72ff9d044180898153f5eea37, type: 3}
+  - {fileID: 3901398656736511416, guid: 22e7f5d6abe31f84cae57aab669265e2, type: 3}
+  - {fileID: 887256323982367983, guid: e58b90107974c604993207d8c9463657, type: 3}
+  - {fileID: 6559462208921511166, guid: 6cfe3a40aa08d4149b0e89b9b7740dbc, type: 3}
+  - {fileID: 6559462208921511166, guid: 63c57df3727916b478b819df805a8951, type: 3}
+  - {fileID: 6559462208921511166, guid: 550bcd3763b2f9d4181be356e025861f, type: 3}
+  - {fileID: 6559462208921511166, guid: 5c83af5b7d89bc74cb1f9c50f1f3aba8, type: 3}
+  - {fileID: 6559462208921511166, guid: 85b4a27b3bf235748ab2bf476e33f72b, type: 3}
+  - {fileID: 6559462208921511166, guid: a3a5e095caa8c7747990d878b1c31ac6, type: 3}
+  - {fileID: 6559462208921511166, guid: b3b74954dca758a41874e8a19b34020a, type: 3}
+  - {fileID: 6559462208921511166, guid: 80b7ae906bfd7994fb25e5279957a55f, type: 3}
   spawnPoint: {fileID: 1521937476}
-  initialSpawnRate: 3
-  speedModifier: 3
+  initialSpawnRate: 8
+  speedModifier: 2
   spawnRateDecrease: 0.05
-  speedIncrease: 0.1
+  speedIncrease: 0.05
 --- !u!1 &1561233820
 GameObject:
   m_ObjectHideFlags: 0
