@@ -54,11 +54,11 @@ public class VolumeManager : MonoBehaviour
     public void SetMasterVolume()
     {
         float volume = masterSlider.value;
-        mixer.SetFloat("fxVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("fxVolume", volume);
+        mixer.SetFloat("masterVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("masterVolume", volume);
     }
 
-    private void LoadVolume()
+    public void LoadVolume()
     {
         bgSlider.value = PlayerPrefs.GetFloat("bgVolume");
         fxSlider.value = PlayerPrefs.GetFloat("fxVolume");

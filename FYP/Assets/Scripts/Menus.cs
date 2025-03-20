@@ -38,6 +38,7 @@ public class Menus : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.isPlaying = true;
+        Debug.Log("resume");
     }
     public void Restart()
     {
@@ -76,5 +77,6 @@ public class Menus : MonoBehaviour
         Time.timeScale = 0f;
         volumeController.SaveSettings();
         volumeMenu.SetActive(false);
+        Debug.Log("volume");
     }
 }
