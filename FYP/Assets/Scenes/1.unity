@@ -3379,10 +3379,10 @@ MonoBehaviour:
   - {fileID: 6559462208921511166, guid: b3b74954dca758a41874e8a19b34020a, type: 3}
   - {fileID: 6559462208921511166, guid: 80b7ae906bfd7994fb25e5279957a55f, type: 3}
   spawnPoint: {fileID: 1521937476}
-  initialSpawnRate: 8
+  initialSpawnRate: 7
   speedModifier: 2
-  spawnRateDecrease: 0.05
-  speedIncrease: 0.05
+  spawnRateDecrease: 0.2
+  speedIncrease: 0.1
 --- !u!1 &1561233820
 GameObject:
   m_ObjectHideFlags: 0
