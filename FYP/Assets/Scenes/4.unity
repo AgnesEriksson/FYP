@@ -1639,7 +1639,7 @@ GameObject:
   - component: {fileID: 646160897}
   - component: {fileID: 646160896}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: adCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3153,6 +3153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34791571f9e862044ac6703a389d62c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menus: {fileID: 1081536665}
   interstitialAds:
   - {fileID: 954372921}
   - {fileID: 1152653894}
@@ -3160,6 +3161,10 @@ MonoBehaviour:
   - {fileID: 1539688150}
   adCanvas: {fileID: 646160894}
   exitButtonDelay: 2
+  DoOnce: 1
+  Reset: 1
+  CurrentTime: 10
+  MaxTime: 10
 --- !u!1 &1092547732
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
         ScoreManager.Instance.highScoreCheck();
         HighScoreText.text = "High Score: " + ScoreManager.Instance.HighScore;
         FinalScoreText.text = "Score: " + ScoreManager.Instance.FinalScore;
-        menu.GameOverActive();
     }
     void Update()
     {

@@ -5249,6 +5249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Halo
       objectReference: {fileID: 0}
+    - target: {fileID: 5186131490993592923, guid: 1ec13e2bf2aadd0488f5867b5279efcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
