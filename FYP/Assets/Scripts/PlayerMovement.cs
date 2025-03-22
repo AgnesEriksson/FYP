@@ -29,59 +29,62 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundDistance, groundLayer); //ground checking
-
-        #region Jump Code (W)
-        if (isGrounded && canJump && Input.GetKeyDown(KeyCode.W))
+        if (GameManager.Instance.isPlaying)
         {
-            isJumping = true;
-            rb.velocity = Vector2.up * jumpForce; //applys jumping force if player is grounded
-        }
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundDistance, groundLayer); //ground checking
 
-        if (isJumping && Input.GetKey(KeyCode.W)) //while key is pressed 
-        {
-            if (jumpTime > timeSinceJump) //continues to apply jump force
+            #region Jump Code (W)
+            if (isGrounded && canJump && Input.GetKeyDown(KeyCode.W))
             {
-                rb.velocity = Vector2.up * jumpForce;
-                timeSinceJump += Time.deltaTime;
+                isJumping = true;
+                rb.velocity = Vector2.up * jumpForce; //applys jumping force if player is grounded
             }
-            else
+
+            if (isJumping && Input.GetKey(KeyCode.W)) //while key is pressed 
+            {
+                if (jumpTime > timeSinceJump) //continues to apply jump force
+                {
+                    rb.velocity = Vector2.up * jumpForce;
+                    timeSinceJump += Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.W)) //end of jump input
             {
                 isJumping = false;
+                timeSinceJump = 0;
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.W)) //end of jump input
-        {
-            isJumping = false;
-            timeSinceJump = 0;
-        }
-        #endregion
-        #region Crouch Code (S)
-        if (isGrounded && Input.GetKeyDown(KeyCode.S))
-        {
-            isCrouching = true;
-            Sprite.localScale = new Vector3 (Sprite.localScale.x, crouchScale, Sprite.localScale.z);
-            if (isJumping)
+            #endregion
+            #region Crouch Code (S)
+            if (isGrounded && Input.GetKeyDown(KeyCode.S))
             {
-                Sprite.localScale = new Vector3(Sprite.localScale.x, 1f , Sprite.localScale.y);
+                isCrouching = true;
+                Sprite.localScale = new Vector3(Sprite.localScale.x, crouchScale, Sprite.localScale.z);
+                if (isJumping)
+                {
+                    Sprite.localScale = new Vector3(Sprite.localScale.x, 1f, Sprite.localScale.y);
+                }
             }
+            if (isCrouching && Input.GetKey(KeyCode.S))
+            {
+                Sprite.localScale = new Vector3(Sprite.localScale.x, crouchScale, Sprite.localScale.z);
+            }
+            if (isCrouching && Input.GetKeyUp(KeyCode.S))
+            {
+                isCrouching = false;
+                Sprite.localScale = new Vector3(Sprite.localScale.x, 1f, Sprite.localScale.z);
+            }
+            #endregion
         }
-        if (isCrouching && Input.GetKey(KeyCode.S))
-        {
-            Sprite.localScale = new Vector3(Sprite.localScale.x, crouchScale, Sprite.localScale.z);
-        }
-        if (isCrouching && Input.GetKeyUp(KeyCode.S))
-        {
-            isCrouching = false;
-            Sprite.localScale = new Vector3(Sprite.localScale.x, 1f , Sprite.localScale.z);
-        }
-        #endregion
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("test");
+        Debug.Log("test");
         if (collision.collider.CompareTag("Danger"))
         {
             GameManager.Instance.gameOver = true;

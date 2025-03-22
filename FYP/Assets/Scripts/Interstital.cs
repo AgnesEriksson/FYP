@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Interstitial : MonoBehaviour
@@ -8,6 +9,7 @@ public class Interstitial : MonoBehaviour
     [SerializeField] private GameObject[] interstitialAds; // Assign ad GameObjects in Inspector
     [SerializeField] private GameObject adCanvas; // Assign the UI Canvas in Inspector
     [SerializeField] private float exitButtonDelay = 2f; // Time before the Canvas appears
+    [SerializeField] private TextMeshProUGUI countdownText; //text for ad count down
 
     private static int adIndex = 0; // Tracks current ad
     private bool isAdActive = false;
@@ -32,10 +34,11 @@ public class Interstitial : MonoBehaviour
                 isAdActive = true;
                 HideAllAds();
                 interstitialAds[adIndex].SetActive(true);
+                countdownText.gameObject.SetActive(true);
             }
 
-
             CurrentTime -= Time.deltaTime;
+            countdownText.text = Mathf.CeilToInt(CurrentTime).ToString();
 
             if (CurrentTime <= 0.0f && Reset)
             {
@@ -43,17 +46,10 @@ public class Interstitial : MonoBehaviour
 
                 CurrentTime = MaxTime;
 
-
+                countdownText.gameObject.SetActive(false);
                 adCanvas.SetActive(true);
             }
-
-
-
         }
-
-
-
-
     }
 
     public void ResetBools(bool Condition)

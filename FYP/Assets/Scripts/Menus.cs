@@ -55,9 +55,18 @@ public class Menus : MonoBehaviour
 
     public void GameOverActive()
     {
-        Time.timeScale = 0f;
-        pauseMenu.SetActive(true);
-        GameOverMenu.SetActive(true);
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name != ("4"))
+        {
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);
+            GameOverMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(true);
+            GameOverMenu.SetActive(true);
+        }
     }
     public void GameOverInactive()
     {

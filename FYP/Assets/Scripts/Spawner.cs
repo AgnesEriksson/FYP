@@ -21,17 +21,21 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        timeSinceSpawn += Time.deltaTime;
-
-        if (timeSinceSpawn >= currentSpawnRate)
+        if (GameManager.Instance.isPlaying)
         {
-            SpawnObject();
-            timeSinceSpawn = 0f;
+            timeSinceSpawn += Time.deltaTime;
 
-            // Gradually adjust spawn rate and speed with controlled increments
-            currentSpawnRate = Mathf.Max(currentSpawnRate - spawnRateDecrease, 0.5f);
-            speedModifier += speedIncrease;
+            if (timeSinceSpawn >= currentSpawnRate)
+            {
+                SpawnObject();
+                timeSinceSpawn = 0f;
+
+                // Gradually adjust spawn rate and speed with controlled increments
+                currentSpawnRate = Mathf.Max(currentSpawnRate - spawnRateDecrease, 0.5f);
+                speedModifier += speedIncrease;
+            }
         }
+
     }
 
     private void SpawnObject()
