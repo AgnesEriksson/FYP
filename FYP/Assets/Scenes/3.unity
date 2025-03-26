@@ -604,7 +604,6 @@ GameObject:
   - component: {fileID: 397731135}
   - component: {fileID: 397731133}
   - component: {fileID: 397731131}
-  - component: {fileID: 397731136}
   - component: {fileID: 397731137}
   m_Layer: 3
   m_Name: Player
@@ -678,41 +677,6 @@ Transform:
   - {fileID: 1806766277}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &397731136
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397731130}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!82 &397731137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4245,8 +4209,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1521937476}
   initialSpawnRate: 7
   speedModifier: 2
-  spawnRateDecrease: 0.2
-  speedIncrease: 0.1
+  spawnRateDecrease: 0.3
+  speedIncrease: 0.3
 --- !u!1 &1536257261
 GameObject:
   m_ObjectHideFlags: 0
