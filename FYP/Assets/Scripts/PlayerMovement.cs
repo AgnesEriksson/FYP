@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpTime = 0.5f; //The time allowed for the jump to apply force
     [SerializeField] private Transform Sprite; // The Component storing the Sprite Renderer
     [SerializeField] private float crouchScale = 0.5f; //Scaleing for Sprite when crouching
+    [SerializeField] private AudioSource bounce;
     private float timeSinceJump; //Timer for jumptime
     private float groundDistance = 0.2f; // Max distance allowed to be away from the ground to jump
 
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
             #region Jump Code (W)
             if (isGrounded && canJump && Input.GetKeyDown(KeyCode.W))
             {
+                bounce.Play();
                 isJumping = true;
                 rb.velocity = Vector2.up * jumpForce; //applys jumping force if player is grounded
             }
